@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
 
   def index
     # @tweet = Tweet.find(1)
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order("created_at DESC")
   end
 
   def new
@@ -10,6 +10,7 @@ class TweetsController < ApplicationController
 
   def create
     Tweet.create(tweet_params)
+    # binding.pry
     # Tweet.create(name: params[:name], image: params[:image], text: params[:text])
   end
 
